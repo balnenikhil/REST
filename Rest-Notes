@@ -1,0 +1,57 @@
+Representational State Transfer (REST) as an architectural approach to designing web services.
+
+REST APIs use a uniform interface, which helps to decouple the client and service implementations. 
+
+GET retrieves a representation of the resource at the specified URI. The body of the response message contains the details of the requested resource.
+POST creates a new resource at the specified URI. The body of the request message provides the details of the new resource. Note that POST can also be used to trigger operations that don't actually create resources.
+PUT either creates or replaces the resource at the specified URI. The body of the request message specifies the resource to be created or updated.
+PATCH performs a partial update of a resource. The request body specifies the set of changes to apply to the resource.
+DELETE removes the resource at the specified URI.
+
+In the HTTP protocol, formats are specified through the use of media types, also called MIME types. For non-binary data, most web APIs support JSON (media type = application/json) and possibly XML (media type = application/xml).
+
+If the server doesn't support the media type, it should return HTTP status code 415 (Unsupported Media Type).
+
+A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found).
+
+If a POST method creates a new resource, it returns HTTP status code 201 (Created).
+
+If a PUT method creates a new resource, it returns HTTP status code 201 (Created), as with a POST method. If the method updates an existing resource, it returns either 200 (OK) or 204 (No Content).
+
+HTTP HEAD requests for these resources. A HEAD request is similar to a GET request, except that it only returns the HTTP headers that describe the resource, with an empty message body
+
+This principle is known as HATEOAS, or Hypertext as the Engine of Application State.
+
+Adding content to existing resources might not present a breaking change as client
+
+ applications that are not expecting to see this content will ignore it. -- no versioning
+
+
+services principles - modular(loose coupling)
+composable
+self describing
+media type versioning use accept header
+GET https://adventure-works.com/customers/3 HTTP/1.1
+Accept: application/vnd.adventure-works.v1+json
+
+
+By convention, resource names should use exclusively lowercase letters. Similarly, dashes (-) are conventionally used in place of underscores (_).
+
+Layers data tier, application server, web server and web browser.
+
+http has requestline, headers, blank line  and message body.
+
+host header must always be included in http header
+
++ or %20 is used to encode spaces, = to assign value and & to join
+
+RPC acts as a midleware between hetrogenous components , it allows clients to invoke procedures that are implemented on a server. rpc uses procedures
+
+client, interface definaton language, server rpc has to types of calls synchronus and asynchronus
+
+
+Common object request broker architechture corba
+
+client-object request broker-cobra services
+
+
